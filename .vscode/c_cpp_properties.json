@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            // "compilerPath": "/usr/bin/gcc",
+            // => RAGHU : changed the compiler path to this accoring to - https://stackoverflow.com/questions/45583473/include-errors-detected-in-vscode#:~:text=Go%20to%20your,path%20as%20below
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "gnu17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider" : "ms-vscode.cpptools"
+        }
+    ],
+    "version": 4
+}
