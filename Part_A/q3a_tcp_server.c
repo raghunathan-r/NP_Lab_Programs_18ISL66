@@ -42,7 +42,7 @@ int main(){
     server_addr.sin_port = port;
     server_addr.sin_addr.s_addr = inet_addr(ip);
 
-    // now we will bind the address and the port number
+    // now we will mind the address and the port number
     n = bind(server_sock, (struct sockaddr*)&server_addr, sizeof(server_addr));
 
     // now checking it the socket is properly binding
@@ -64,27 +64,6 @@ int main(){
         client_sock = accept(server_sock, (struct sockaddr*)&client_addr, &addr_size);
         printf("client connected\n");
 
-        do{
-            // now we accept the messages received from the client into the buffer variable
-            bzero(buffer, 1024);
-            recv(client_sock, buffer, sizeof(buffer), 0);
-            printf("client : %s\n", buffer);
-
-            // sending a message to the client
-            bzero(buffer, 1024);
-            
-            // accepting a message a sent form server
-            gets(buffer);
-            printf("-> report : server sent - %s\n", buffer);
-            send(client_sock, buffer, strlen(buffer), 0);
-
-        } while(strcmp(buffer, "exit") == 0);
-
-        // closing the connection after all the messages are transferred
-        close(client_sock);
-        printf("closed client socket\n");
-
-        /*
         // now we accept the messages received from the client into the buffer variable
         bzero(buffer, 1024);
         recv(client_sock, buffer, sizeof(buffer), 0);
@@ -96,13 +75,13 @@ int main(){
         printf("-> report : server sent - %s\n", buffer);
         send(client_sock, buffer, strlen(buffer), 0);
 
-        // closing the connection after all the messages are transferred
-        close(client_sock);
-        printf("closed client socket\n");
-        */
 
         // now because we are in a while loop, it will go back and again wait for a new client to establish a connection.
     }
+
+        // closing the connection after all the messages are transferred
+        close(client_sock);
+        printf("closed client socket\n");
     
 
     return 0;

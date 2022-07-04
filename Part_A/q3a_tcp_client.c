@@ -56,15 +56,15 @@ int main(){
     connect(sock, (struct sockaddr*)&client_addr, sizeof(client_addr));
     printf("connected to server\n");
 
-    // now that we have connected we can start sending messages
-    // we use the buffer to store our messages
+    while(1) {
+        // now that we have connected we can start sending messages
+        // we use the buffer to store our messages
 
-    do{
         bzero(buffer, 1024);
-        // asking the message to be sent from the client
-        printf("client says ? : "); gets("%s", buffer);
+        strcpy(buffer, "hello there, server. this is client\n");
+        printf("-> report : client sent - %s\n", buffer);
 
-        // now we send the message to the server using send()
+        // now we send the message using the send function
         send(sock, buffer, strlen(buffer), 0);
 
         // now taking care of the messages received form the server
@@ -72,28 +72,12 @@ int main(){
         recv(sock, buffer, sizeof(buffer), 0);
         printf("server : %s\n", buffer);
 
-    } while(strcmp(buffer, "exit") == 0);
-
-    // now that exit was typed we will close the client
-    close(sock);
-    printf("disconnected from the server\n");
-
-    /*
-    strcpy(buffer, "hello there, server. this is client\n");
-    printf("-> report : client sent - %s\n", buffer);
-
-    // now we send the message using the send function
-    send(sock, buffer, strlen(buffer), 0);
-
-    // now taking care of the messages received form the server
-    bzero(buffer, 1024);
-    recv(sock, buffer, sizeof(buffer), 0);
-    printf("server : %s\n", buffer);
+    }
 
     // now after all the messages are transmitted we are going to disconnect from the server
     close(sock);
     printf("disconnected from the server\n");
-    */
+
 
     return 0;
 }
