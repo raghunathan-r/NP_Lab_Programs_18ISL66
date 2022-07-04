@@ -2,6 +2,21 @@
 
 // TCP server
 
+/*
+    - this is suited for functions that need high reliability
+    - there is absolute guarantee that the data transferred remains intact and arrives in the same order in which it was sent
+    - handles reliability and congestion control
+    - does error checking and error recovery
+
+    Algorithm
+    1. create a socket
+    2. bind the socket
+    3. listen for a client
+    4. accept the client
+    5. send receive messages
+    6. close the socket
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<arpa/inet.h>

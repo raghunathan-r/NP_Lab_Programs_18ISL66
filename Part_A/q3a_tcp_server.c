@@ -42,7 +42,7 @@ int main(){
     server_addr.sin_port = port;
     server_addr.sin_addr.s_addr = inet_addr(ip);
 
-    // now we will mind the address and the port number
+    // now we will bind the address and the port number
     n = bind(server_sock, (struct sockaddr*)&server_addr, sizeof(server_addr));
 
     // now checking it the socket is properly binding

@@ -22,8 +22,8 @@ int main(){
     int output_rate;
     printf("output rate [eg. 2] ? : "); scanf("%d", &output_rate);
 
-    // taking the data flow information for every second
-    int i = 0, input[10], choice;
+    // taking the data flow information for every second. make sure input is initialised to 0
+    int i = 0, input[10] = {0}, choice;
     do{
 
         printf("\nno. of packets in second %d ? : ", i + 1); scanf("%d", &input[i]);
@@ -42,7 +42,7 @@ int main(){
 
         printf("%d\t", i + 1);
         printf("%d\t", input[i]);
-        printf("%d\t", MIN(input[i] - output_rate, output_rate));
+        printf("%d\t", MIN(input[i] + remaining_data, output_rate));
 
         int data;
         if((data = input[i] + remaining_data - output_rate) > 0){

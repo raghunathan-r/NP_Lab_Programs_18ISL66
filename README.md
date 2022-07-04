@@ -2,7 +2,9 @@
 
 This is a repository containing all the programs in the Network Programming Lab.
 
-[NP Notes](https://raghunathan.notion.site/NP-Lab-Practice-75218768b73e4f2d863c83fdd8077f88)
+### [📓 NP Lab Rough Notes](https://raghunathan.notion.site/NP-Lab-Practice-75218768b73e4f2d863c83fdd8077f88)
+
+<br>
 
 ## Framing
 
