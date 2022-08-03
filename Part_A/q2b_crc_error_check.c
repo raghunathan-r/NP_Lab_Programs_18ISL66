@@ -99,7 +99,7 @@ int main(){
 
         // DEBUGGING
         printf("\n=> the CRC after division is ->\n");
-        for(int i = 0; i < (devisor_length - 1); i++) printf("%d", crc[i]); printf("\n");
+        for(int j = 0; j < (devisor_length - 1); j++) printf("%d", crc[j]); printf("\n");
     }
 
     // creating a new variable and storing the data after the new CRC obtained after division
@@ -130,7 +130,7 @@ int main(){
     for(int i = 0; i < new_message_length; i++){
 
         for(int j = 0; j < devisor_length; j++){
-            reminder[j] = new_message[i + j];
+            reminder[j] = received_message[i + j];
 
             if(reminder[0] == 1)
                 received_message[i + j] = XOR(received_message[i + j], devisor[i]);

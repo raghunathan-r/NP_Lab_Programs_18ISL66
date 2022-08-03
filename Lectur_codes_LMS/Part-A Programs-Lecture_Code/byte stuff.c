@@ -13,7 +13,7 @@ for(i=0;i<n;i++)
 {
 	printf("Enter frame\n");
 	scanf("%s",buffer);
-	printf("String length of buffer is %d\n",strlen(buffer));
+	printf("String length of buffer is %d \n",strlen(buffer));
 	len=strlen(buffer);
 	len=len+1;
 	sprintf(length,"%d",len);

@@ -68,7 +68,28 @@ void reciver(int *recived_frame, int frame_length){
     printf("\nrecived stuffed frame : ");
     for(int i = 0; i < frame_length; i++) printf("%d", recived_frame[i]);
 
-    
+    printf("\nthe extratcted frame : ");
+
+    int extracted_frame[100];
+
+    int is_zero = 0, ones_count = 0, j = 0;
+    for(int i = 8; i < frame_length - 8; i++){
+
+        if(recived_frame[i] == 0){
+            if(ones_count == 5){
+                extracted_frame[j++] = recived_frame[++i];
+                ones_count = 0;
+            } else{
+                extracted_frame[j++] = recived_frame[i];
+                ones_count = 0;
+            }
+        } else{
+            extracted_frame[j++] = recived_frame[i];
+            ones_count++;
+        }
+    }
+
+    for(int i = 0; i < j; i++) printf("%d ", extracted_frame[i]); printf("\n");
 };
 
 int main(){

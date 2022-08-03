@@ -57,7 +57,7 @@ void sender(){
     // now adding the message after the beginning sequence and stuffing as needed
 
     int j = 8;
-    // this is a flag variable to say if the current bit is 0 or is it 1
+    // this is a flag variable to say if the starting bit of the frame is 0 or is it 1
     int is_zero = 0;
     // we keep track of the count of continues 1 s so when it reaches 5 we stuff a 0 bit
     int ones_count = 0;
